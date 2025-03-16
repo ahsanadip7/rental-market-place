@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+/* Base styles */
+body {
+  background-color: #ffffff; /* Light background */
+  color: #000000; /* Dark text */
+}
+
+/* Dark Mode styles */
+.dark body {
+  background-color: #1a202c; /* Dark background */
+  color: #edf2f7; /* Light text for dark mode */
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff; /* Light navbar background */
+  color: #333333; /* Dark text */
+}
+
+.dark .navbar {
+  background-color: #2d3748; /* Dark navbar */
+  color: #edf2f7; /* Light text for dark navbar */
+}
+
+.navbar a {
+  color: #333333;
+}
+
+.dark .navbar a {
+  color: #edf2f7; /* Lighter text color for links in dark mode */
+}
+
+/* Buttons */
+.btn {
+  background-color: #3b82f6; /* Light blue for light mode buttons */
+  color: white;
+}
+
+.btn:hover {
+  background-color: #2563eb; /* Darker blue on hover */
+}
+
+.dark .btn {
+  background-color: #4a5568; /* Dark gray for dark mode buttons */
+  color: white;
+}
+
+.dark .btn:hover {
+  background-color: #2d3748; /* Darker shade on hover for dark mode */
+}
+
+/* Heading styles */
+h1, h2, h3 {
+  color: #1a202c; /* Dark text for headings */
+}
+
+.dark h1, .dark h2, .dark h3 {
+  color: #ece9e9; /* Lighter text for headings in dark mode */
+}
+
+/* Input fields */
+input, textarea {
+  background-color: #f7fafc; /* Light background for input */
+  border: 1px solid #cbd5e0; /* Light border */
+  color: #333333; /* Dark text for input */
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3b82f6; /* Blue border on focus */
+}
+
+.dark input, .dark textarea {
+  background-color: #2d3748; /* Dark background for input in dark mode */
+  border: 1px solid #4a5568; /* Dark border */
+  color: #edf2f7; /* Light text for input */
+}
+
+.dark input:focus, .dark textarea:focus {
+  border-color: #63b3ed; /* Lighter blue border on focus */
+}
+
+/* Card styles */
+.card {
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card {
+  background-color: #2d3748; /* Dark background for cards */
+  color: #edf2f7; /* Light text for cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow for cards in dark mode */
+}
+
+/* Gradient text (if any) */
+.bg-gradient-text {
+  background: linear-gradient(to right, #3b82f6, #06b6d4, #10b981);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.dark .bg-gradient-text {
+  background: linear-gradient(to right, #2563eb, #4c51bf, #ff6b6b);
+}
+
+/* Footer styles */
+.footer {
+  background-color: #f7fafc;
+  color: #333333;
+}
+
+.dark .footer {
+  background-color: #2d3748; /* Dark footer background */
+  color: #edf2f7; /* Light text for footer */
+}
+

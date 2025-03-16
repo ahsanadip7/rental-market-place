@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "name": "MacBook Pro 13",
+        "categoryId": 1,
+        "description": "Apple MacBook Pro with M1 chip.",
+        "price": "$1,299",
+        "image": "https://example.com/macbook.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dell XPS 13",
+        "categoryId": 1,
+        "description": "Powerful laptop with 11th Gen Intel i7.",
+        "price": "$1,199",
+        "image": "https://example.com/dellxps13.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Canon EOS 90D",
+        "categoryId": 2,
+        "description": "A powerful DSLR with high-speed shooting.",
+        "price": "$1,199",
+        "image": "https://example.com/canon90d.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Sony Alpha A6400",
+        "categoryId": 2,
+        "description": "Compact mirrorless camera with incredible autofocus.",
+        "price": "$899",
+        "image": "https://example.com/sonya6400.jpg"
+    },
+    {
+        "id": 5,
+        "name": "PlayStation 5",
+        "categoryId": 3,
+        "description": "Next-gen gaming console from Sony.",
+        "price": "$499",
+        "image": "https://example.com/ps5.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Xbox Series X",
+        "categoryId": 3,
+        "description": "High-performance gaming console by Microsoft.",
+        "price": "$499",
+        "image": "https://example.com/xboxseriesx.jpg"
+    },
+    {
+        "id": 7,
+        "name": "iPhone 13 Pro Max",
+        "categoryId": 4,
+        "description": "Flagship smartphone by Apple.",
+        "price": "$1,099",
+        "image": "https://example.com/iphone13pro.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Samsung Galaxy S21",
+        "categoryId": 4,
+        "description": "Samsung's latest flagship phone.",
+        "price": "$799",
+        "image": "https://example.com/samsungs21.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Bose QuietComfort 35 II",
+        "categoryId": 5,
+        "description": "Noise-canceling over-ear headphones.",
+        "price": "$299",
+        "image": "https://example.com/boseqc35ii.jpg"
+    },
+    {
+        "id": 10,
+        "name": "JBL Charge 4",
+        "categoryId": 5,
+        "description": "Portable Bluetooth speaker with great bass.",
+        "price": "$149",
+        "image": "https://example.com/jblcharge4.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Apple Watch Series 7",
+        "categoryId": 6,
+        "description": "Smartwatch with a large display and fast charging.",
+        "price": "$399",
+        "image": "https://example.com/applewatch7.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Fitbit Charge 5",
+        "categoryId": 6,
+        "description": "Health and fitness tracker with built-in GPS.",
+        "price": "$179",
+        "image": "https://example.com/fitbitcharge5.jpg"
+    },
+    {
+        "id": 13,
+        "name": "iPad Pro 12.9",
+        "categoryId": 7,
+        "description": "Apple's most powerful tablet.",
+        "price": "$1,099",
+        "image": "https://example.com/ipadpro12.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Samsung Galaxy Tab S7",
+        "categoryId": 7,
+        "description": "A premium Android tablet.",
+        "price": "$649",
+        "image": "https://example.com/galaxytabs7.jpg"
+    },
+    {
+        "id": 15,
+        "name": "LG OLED65CXPUA Alexa Built-In OLED TV",
+        "categoryId": 8,
+        "description": "65-inch OLED TV with perfect black levels.",
+        "price": "$1,799",
+        "image": "https://example.com/lgoledtv.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Sony 75-Inch X900H LED TV",
+        "categoryId": 8,
+        "description": "75-inch 4K HDR TV with full-array local dimming.",
+        "price": "$1,299",
+        "image": "https://example.com/sonyx900h.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Makita Cordless Drill",
+        "categoryId": 9,
+        "description": "18V cordless drill with battery and charger.",
+        "price": "$129",
+        "image": "https://example.com/makita.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Bosch Power Tools Combo Kit",
+        "categoryId": 9,
+        "description": "Complete power tools set for home improvement.",
+        "price": "$299",
+        "image": "https://example.com/bosch.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Tesla Model 3",
+        "categoryId": 10,
+        "description": "Electric vehicle with a sleek design.",
+        "price": "$35,000",
+        "image": "https://example.com/teslamodel3.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Ford Mustang",
+        "categoryId": 10,
+        "description": "Classic American muscle car.",
+        "price": "$27,000",
+        "image": "https://example.com/fordmustang.jpg"
+    }
+]

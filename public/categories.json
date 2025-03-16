@@ -1,0 +1,13 @@
+[
+    { "id": 1, "name": "Laptops", "icon": "FaLaptop", "color": "bg-blue-500" },
+    { "id": 2, "name": "Cameras", "icon": "FaCamera", "color": "bg-green-500" },
+    { "id": 3, "name": "Gaming", "icon": "FaGamepad", "color": "bg-red-500" },
+    { "id": 4, "name": "Smartphones", "icon": "FaMobileAlt", "color": "bg-yellow-500" },
+    { "id": 5, "name": "Audio", "icon": "FaHeadphones", "color": "bg-purple-500" },
+    { "id": 6, "name": "Wearables", "icon": "FaClock", "color": "bg-teal-500" },
+    { "id": 7, "name": "Tablets", "icon": "FaTabletAlt", "color": "bg-indigo-500" },
+    { "id": 8, "name": "TVs", "icon": "FaTv", "color": "bg-pink-500" },
+    { "id": 9, "name": "Tools", "icon": "FaTools", "color": "bg-gray-500" },
+    { "id": 10, "name": "Vehicles", "icon": "FaCar", "color": "bg-orange-500" }
+ ]
+ 
