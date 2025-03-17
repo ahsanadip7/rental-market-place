@@ -114,7 +114,7 @@ const SignUp = () => {
         >
           Already have an account? Go to{" "}
           <span className="text-indigo-600">
-            <Link to="/login">Log in</Link>
+            <Link to="/signin">Log in</Link>
           </span>
           .
         </motion.p>

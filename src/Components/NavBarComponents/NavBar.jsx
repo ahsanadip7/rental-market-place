@@ -73,16 +73,18 @@ const NavBar = () => {
                             >
                                
                                 {/* User Profile */}
-                                <div className="flex flex-col items-center justify-center">
-                                    <span>
-                                        <p className="px-4 py-2 text-center font-medium text-white hidden md:flex">{user.displayName || "User"}</p>
-                                    </span>
+                                <div className="flex flex-row items-center justify-center">
+                                    
                                     <span>
                                         <img
                                             src={user.photoURL || "https://via.placeholder.com/40"} // Fallback image
                                             alt="User Avatar"
                                             className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer"
                                         />
+                                    </span>
+
+                                    <span>
+                                        <p className="px-4 py-2 text-blue text-center font-medium text-white hidden md:flex">{user.displayName || "User"}</p>
                                     </span>
                                 </div>
 

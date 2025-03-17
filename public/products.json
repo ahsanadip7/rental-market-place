@@ -3,86 +3,97 @@
         "id": 1,
         "name": "MacBook Pro 13",
         "categoryId": 1,
+        "brand": "Apple",
         "description": "Apple MacBook Pro with M1 chip.",
         "price": "$1,299",
-        "image": "https://example.com/macbook.jpg"
+        "image": "https://i.ibb.co.com/hFShGc2k/Mac-Book-Pro-13.jpg"
     },
     {
         "id": 2,
         "name": "Dell XPS 13",
         "categoryId": 1,
+        "brand": "Dell",
         "description": "Powerful laptop with 11th Gen Intel i7.",
         "price": "$1,199",
-        "image": "https://example.com/dellxps13.jpg"
+        "image": "https://i.ibb.co.com/zWswvmqh/Dell-XPS-13.jpg"
     },
     {
         "id": 3,
         "name": "Canon EOS 90D",
         "categoryId": 2,
+        "brand": "Canon",
         "description": "A powerful DSLR with high-speed shooting.",
         "price": "$1,199",
-        "image": "https://example.com/canon90d.jpg"
+        "image": "https://i.ibb.co.com/60XxPG4W/Canon-EOS-90-D.jpg"
     },
     {
         "id": 4,
         "name": "Sony Alpha A6400",
         "categoryId": 2,
+        "brand": "Sony",
         "description": "Compact mirrorless camera with incredible autofocus.",
         "price": "$899",
-        "image": "https://example.com/sonya6400.jpg"
+        "image": "https://i.ibb.co.com/j9jPnm4y/Sony-Alpha-A6400.jpg"
     },
     {
         "id": 5,
         "name": "PlayStation 5",
         "categoryId": 3,
+        "brand": "Sony",
         "description": "Next-gen gaming console from Sony.",
         "price": "$499",
-        "image": "https://example.com/ps5.jpg"
+        "image": "https://i.ibb.co.com/2320QSvK/Play-Station-5.jpg"
     },
     {
         "id": 6,
         "name": "Xbox Series X",
         "categoryId": 3,
+        "brand": "Microsoft",
         "description": "High-performance gaming console by Microsoft.",
         "price": "$499",
-        "image": "https://example.com/xboxseriesx.jpg"
+        "image": "https://i.ibb.co.com/y91SNLb/Xbox-Series-X.jpg"
     },
     {
         "id": 7,
         "name": "iPhone 13 Pro Max",
         "categoryId": 4,
+        "brand": "Apple",
         "description": "Flagship smartphone by Apple.",
         "price": "$1,099",
-        "image": "https://example.com/iphone13pro.jpg"
+        "image": "https://i.ibb.co.com/BKgCyWmN/i-Phone-13-Pro-Max.jpg"
     },
     {
         "id": 8,
         "name": "Samsung Galaxy S21",
         "categoryId": 4,
+        "brand": "Samsung",
         "description": "Samsung's latest flagship phone.",
         "price": "$799",
-        "image": "https://example.com/samsungs21.jpg"
+        "image": "https://i.ibb.co.com/39b0WsXV/Samsung-Galaxy-S21.jpg"
     },
     {
         "id": 9,
         "name": "Bose QuietComfort 35 II",
         "categoryId": 5,
+        "brand": "Bose",
         "description": "Noise-canceling over-ear headphones.",
         "price": "$299",
-        "image": "https://example.com/boseqc35ii.jpg"
+        "image": "https://i.ibb.co.com/Q3t0YRsP/Bose-Quiet-Comfort-35-II.jpg"
     },
     {
         "id": 10,
         "name": "JBL Charge 4",
         "categoryId": 5,
+        "brand": "JBL",
         "description": "Portable Bluetooth speaker with great bass.",
         "price": "$149",
-        "image": "https://example.com/jblcharge4.jpg"
+        "image": "https://i.ibb.co.com/gbTC1v7d/JBL-Charge-4.jpg"
     },
     {
         "id": 11,
         "name": "Apple Watch Series 7",
         "categoryId": 6,
+        "brand": "Apple",
         "description": "Smartwatch with a large display and fast charging.",
         "price": "$399",
         "image": "https://example.com/applewatch7.jpg"
@@ -91,6 +102,7 @@
         "id": 12,
         "name": "Fitbit Charge 5",
         "categoryId": 6,
+        "brand": "Fitbit",
         "description": "Health and fitness tracker with built-in GPS.",
         "price": "$179",
         "image": "https://example.com/fitbitcharge5.jpg"
@@ -99,6 +111,7 @@
         "id": 13,
         "name": "iPad Pro 12.9",
         "categoryId": 7,
+        "brand": "Apple",
         "description": "Apple's most powerful tablet.",
         "price": "$1,099",
         "image": "https://example.com/ipadpro12.jpg"
@@ -107,6 +120,7 @@
         "id": 14,
         "name": "Samsung Galaxy Tab S7",
         "categoryId": 7,
+        "brand": "Samsung",
         "description": "A premium Android tablet.",
         "price": "$649",
         "image": "https://example.com/galaxytabs7.jpg"
@@ -115,6 +129,7 @@
         "id": 15,
         "name": "LG OLED65CXPUA Alexa Built-In OLED TV",
         "categoryId": 8,
+        "brand": "LG",
         "description": "65-inch OLED TV with perfect black levels.",
         "price": "$1,799",
         "image": "https://example.com/lgoledtv.jpg"
@@ -123,6 +138,7 @@
         "id": 16,
         "name": "Sony 75-Inch X900H LED TV",
         "categoryId": 8,
+        "brand": "Sony",
         "description": "75-inch 4K HDR TV with full-array local dimming.",
         "price": "$1,299",
         "image": "https://example.com/sonyx900h.jpg"
@@ -131,6 +147,7 @@
         "id": 17,
         "name": "Makita Cordless Drill",
         "categoryId": 9,
+        "brand": "Makita",
         "description": "18V cordless drill with battery and charger.",
         "price": "$129",
         "image": "https://example.com/makita.jpg"
@@ -139,6 +156,7 @@
         "id": 18,
         "name": "Bosch Power Tools Combo Kit",
         "categoryId": 9,
+        "brand": "Bosch",
         "description": "Complete power tools set for home improvement.",
         "price": "$299",
         "image": "https://example.com/bosch.jpg"
@@ -147,6 +165,7 @@
         "id": 19,
         "name": "Tesla Model 3",
         "categoryId": 10,
+        "brand": "Tesla",
         "description": "Electric vehicle with a sleek design.",
         "price": "$35,000",
         "image": "https://example.com/teslamodel3.jpg"
@@ -155,6 +174,7 @@
         "id": 20,
         "name": "Ford Mustang",
         "categoryId": 10,
+        "brand": "Ford",
         "description": "Classic American muscle car.",
         "price": "$27,000",
         "image": "https://example.com/fordmustang.jpg"

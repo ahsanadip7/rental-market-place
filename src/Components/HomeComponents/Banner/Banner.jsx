@@ -95,10 +95,11 @@ const Banner = () => {
                             className="relative w-full h-[65vh] md:h-[60vh] lg:h-[70vh] flex items-center justify-center bg-cover bg-center"
                             style={{ backgroundImage: `url(${slide.image})` }}
                         >
-                            <div className="absolute inset-0 bg-black/30 dark:bg-black/40"></div>
+                            {/* Gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent z-10"></div>
 
                             {!user && index === 0 ? (
-                                <div className="relative z-10 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-md mx-auto">
+                                <div className="relative z-20 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-md mx-auto">
                                     <h2 className="text-3xl font-bold text-white mb-4">Please Log In to Continue</h2>
                                     <form onSubmit={handleLogin} className="space-y-4">
                                         <input
@@ -137,7 +138,7 @@ const Banner = () => {
                                     </button>
                                 </div>
                             ) : (
-                                <div className="relative z-10 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-3xl">
+                                <div className="relative z-20 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-3xl">
                                     <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">
                                         {slide.title}
                                     </h1>
