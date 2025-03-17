@@ -11,6 +11,9 @@ import {
 } from "react-router-dom";
 import { DarkModeProvider } from './Contexts/DarkModeProvider/DarkModeProvider';
 import HomePage from './Pages/HomePage/HomePage';
+import AuthProvider from './Contexts/AuthProvider/AuthProvider';
+import SignUp from './Pages/SignUpPage/SignUp';
+import SignIn from './Pages/SignInPage/SignIn';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage></HomePage>
+      },
+      {
+        path: 'signup',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: 'signin',
+        element: <SignIn></SignIn>
       }
     ]
   },
@@ -28,8 +39,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
 
   <StrictMode>
-    <DarkModeProvider>
-    <RouterProvider router={router} />
-    </DarkModeProvider>
+    <AuthProvider>
+      <DarkModeProvider>
+        <RouterProvider router={router} />
+      </DarkModeProvider>
+    </AuthProvider>
   </StrictMode>,
 )

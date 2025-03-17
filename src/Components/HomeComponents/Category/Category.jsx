@@ -95,7 +95,7 @@ const Category = () => {
               <p className="text-sm text-gray-500 dark:text-gray-300 mb-2 h-10">
                 {product.description}
               </p>
-              <p className="text-xl font-bold text-gray-900 dark:text-gray-200 mb-4">
+              <p className="text-xl font-bold text-gray-900 text-white mb-4">
                 {product.price}
               </p>
               <motion.button

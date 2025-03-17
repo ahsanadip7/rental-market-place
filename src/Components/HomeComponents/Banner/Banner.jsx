@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import { FaGoogle } from "react-icons/fa";
+
 // Import images
 import slide1 from "../../../assets/pic-1.jpg";
 import slide2 from "../../../assets/pic-2.jpg";
 import slide3 from "../../../assets/pic-3.jpg";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthContext";
 
 const Banner = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
-    const [username, setUsername] = useState(""); // For username input
-    const [password, setPassword] = useState(""); // For password input
-    const [swiper, setSwiper] = useState(null); // Swiper instance to control autoplay
-    const [swiperDisabled, setSwiperDisabled] = useState(false); // Track swiper disable state
+    const { signInUser, signInWithGoogle, user } = useContext(AuthContext);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [swiper, setSwiper] = useState(null);
+    const [swiperDisabled, setSwiperDisabled] = useState(false);
 
     const slides = [
         {
@@ -41,27 +45,33 @@ const Banner = () => {
         },
     ];
 
-    // Handle login (simple simulation)
-    const handleLogin = () => {
-        if (username === "user" && password === "password") {
-            setIsLoggedIn(true); // Simulate successful login
-            setSwiperDisabled(false); // Re-enable swiper after login
-            if (swiper) swiper.autoplay.start(); // Start autoplay after login
-        } else {
-            alert("Invalid username or password");
-        }
+    const handleLogin = (event) => {
+        event.preventDefault();
+        signInUser(email, password)
+            .then(() => {
+                setSwiperDisabled(false);
+                if (swiper) swiper.autoplay.start();
+            })
+            .catch((error) => setError(error.message));
     };
 
-    // Handle input focus (disables swiper when typing)
-    const handleInputFocus = () => {
-        setSwiperDisabled(true); // Disable swiper when interacting with input fields
-        if (swiper) swiper.autoplay.stop(); // Stop autoplay when input is focused
+    const handleGoogleSign = () => {
+        signInWithGoogle()
+            .then(() => {
+                setSwiperDisabled(false);
+                if (swiper) swiper.autoplay.start();
+            })
+            .catch((error) => setError(error.message));
     };
 
-    // Handle input blur (re-enables swiper when focus is lost)
-    const handleInputBlur = () => {
-        setSwiperDisabled(false); // Re-enable swiper after interaction with inputs
-        if (swiper) swiper.autoplay.start(); // Start autoplay when input loses focus
+    // Stop autoplay on input focus
+    const handleFocus = () => {
+        if (swiper) swiper.autoplay.stop();
+    };
+
+    // Restart autoplay on input blur
+    const handleBlur = () => {
+        if (swiper) swiper.autoplay.start();
     };
 
     return (
@@ -72,12 +82,12 @@ const Banner = () => {
                 navigation
                 autoplay={{
                     delay: 4000,
-                    disableOnInteraction: false, // Allow autoplay to continue even if user interacts
+                    disableOnInteraction: false,
                 }}
                 loop={true}
                 className="w-full h-full"
-                allowTouchMove={!swiperDisabled} // Disable swipe when interacting with login
-                onSwiper={(swiperInstance) => setSwiper(swiperInstance)} // Set swiper instance
+                allowTouchMove={!swiperDisabled}
+                onSwiper={(swiperInstance) => setSwiper(swiperInstance)}
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
@@ -85,63 +95,65 @@ const Banner = () => {
                             className="relative w-full h-[65vh] md:h-[60vh] lg:h-[70vh] flex items-center justify-center bg-cover bg-center"
                             style={{ backgroundImage: `url(${slide.image})` }}
                         >
-                            {/* Background Overlay with lighter blur effect */}
-                            <div className="absolute inset-0 bg-black/30 dark:bg-black/40 backdrop-blur-lg"></div>
+                            <div className="absolute inset-0 bg-black/30 dark:bg-black/40"></div>
 
-                            {/* Conditional rendering for login form on the first slide */}
-                            {index === 0 && !isLoggedIn && (
-                                <div className="relative z-10 bg-gradient-to-r from-blue-500 to-purple-600 dark:from-purple-700 dark:to-blue-500 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-xl text-center max-w-md mx-auto">
-                                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow-md">
-                                        Please Log In to Continue
-                                    </h2>
-                                    <div className="space-y-4">
+                            {!user && index === 0 ? (
+                                <div className="relative z-10 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-md mx-auto">
+                                    <h2 className="text-3xl font-bold text-white mb-4">Please Log In to Continue</h2>
+                                    <form onSubmit={handleLogin} className="space-y-4">
                                         <input
-                                            type="text"
-                                            placeholder="Username"
-                                            value={username}
-                                            onChange={(e) => setUsername(e.target.value)}
-                                            onFocus={handleInputFocus} // Disable swiper on focus
-                                            onBlur={handleInputBlur} // Re-enable swiper on blur
-                                            className="w-full p-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+                                            type="email"
+                                            placeholder="Email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                                            required
+                                            onFocus={handleFocus} // Stop autoplay on focus
+                                            onBlur={handleBlur} // Restart autoplay on blur
                                         />
                                         <input
                                             type="password"
                                             placeholder="Password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            onFocus={handleInputFocus} // Disable swiper on focus
-                                            onBlur={handleInputBlur} // Re-enable swiper on blur
-                                            className="w-full p-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+                                            className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                                            required
+                                            onFocus={handleFocus} // Stop autoplay on focus
+                                            onBlur={handleBlur} // Restart autoplay on blur
                                         />
+                                        {error && <p className="text-red-500 text-sm">{error}</p>}
                                         <button
-                                            onClick={handleLogin}
-                                            className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg transition-all duration-300 ease-in-out"
+                                            type="submit"
+                                            className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
                                         >
                                             Log In
                                         </button>
-                                    </div>
+                                    </form>
+                                    <button
+                                        onClick={handleGoogleSign}
+                                        className="w-full mt-3 bg-gray-100 text-black p-3 rounded-lg flex items-center justify-center"
+                                    >
+                                        <FaGoogle className="mr-2" /> Sign in with Google
+                                    </button>
                                 </div>
-                            )}
-
-                            {/* After successful login or on slides other than the first, show the regular banner content */}
-                            {isLoggedIn || index !== 0 ? (
-                                <div className="relative z-10 bg-white/20 dark:bg-black/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-3xl">
-                                    <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100 drop-shadow-lg">
+                            ) : (
+                                <div className="relative z-10 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-3xl">
+                                    <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">
                                         {slide.title}
                                     </h1>
                                     <p className="text-base md:text-lg mb-6 text-gray-800 dark:text-gray-300">
                                         {slide.description}
                                     </p>
                                     <div className="flex flex-wrap justify-center gap-4">
-                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-white rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-md hover:shadow-xl transition-all">
+                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-white rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-md hover:shadow-xl">
                                             {slide.button1}
                                         </button>
-                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-gray-900 dark:text-gray-200 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all">
+                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-gray-900 dark:text-gray-200 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-xl">
                                             {slide.button2}
                                         </button>
                                     </div>
                                 </div>
-                            ) : null}
+                            )}
                         </div>
                     </SwiperSlide>
                 ))}
