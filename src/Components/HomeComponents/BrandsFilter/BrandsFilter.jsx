@@ -38,7 +38,7 @@ const BrandsFilter = () => {
             <h2 className="text-3xl font-bold mb-6 text-center">Explore Our Brands</h2>
 
             {/* Brand buttons and All Products button */}
-            <div className="flex justify-center gap-6 mb-6">
+            <div className="flex flex-wrap justify-center gap-6 mb-6">
                 <button
                     onClick={handleAllProductsClick}
                     className="px-6 py-2 text-lg bg-gray-500 text-white rounded-full hover:bg-gray-600 focus:outline-none transition-colors duration-300 ease-in-out"

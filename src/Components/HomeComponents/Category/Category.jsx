@@ -41,7 +41,13 @@ const Category = () => {
 
         {/* Category Buttons with Slide-in Animation */}
         <div className="flex flex-wrap justify-start items-center mb-4">
-          <h2 className="text-gray-900 dark:text-gray-100 font-bold text-lg md:text-xl mr-4 ml-2">Categories:</h2>
+          <h2 className="text-lg md:text-xl font-bold mr-4 ml-2 
+             bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
+            Categories:
+          </h2>
+
+
+
           <motion.div
             className="flex overflow-x-auto space-x-4 py-2 px-2"
             initial={{ opacity: 0, x: -100 }} // Initial state (off-screen left)
@@ -72,16 +78,25 @@ const Category = () => {
         </div>
 
         {/* Display Products for the selected category */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        <div
+          className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6 rounded-lg shadow-lg"
+        >
+
+
           {paginatedProducts.map((product) => (
             <motion.div
-              key={product.id}
-              className="p-6 rounded-lg shadow-lg transition-all ease-in-out duration-300"
-              initial={{ opacity: 0, scale: 0.9 }} // Fade-in + Scale effect
-              animate={{ opacity: 1, scale: 1 }} // Initial state
-              transition={{ duration: 0.1 }}
-              whileHover={{ scale: 1.05, y: -10 }} // Hover effect for scaling and slight upward movement
-            >
+            key={product.id}
+            className="p-6 rounded-lg shadow-lg transition-all ease-in-out duration-300
+                      bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500
+                      text-white hover:shadow-xl"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.1 }}
+            whileHover={{ scale: 1.05, y: -10 }}
+          >
+          
+          
+              {/* Product Image */}
               <div className="relative w-full h-48 mb-4">
                 <img
                   src={product.image}
@@ -89,23 +104,39 @@ const Category = () => {
                   className="w-full h-full object-cover rounded-md"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+
+              {/* Product Name with Gradient */}
+              <h3 className="text-lg font-semibold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text mb-2">
                 {product.name}
               </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mb-2 h-10">
+
+              {/* Product Description with Gradient */}
+              <p className="text-sm bg-gradient-to-r from-teal-400 to-cyan-500 text-transparent bg-clip-text mb-2 h-10">
                 {product.description}
               </p>
-              <p className="text-xl font-bold text-gray-900 text-white mb-4">
+
+
+              {/* Product Price with Gradient */}
+              <p className="text-xl font-bold bg-gradient-to-r from-green-300 to-teal-400 text-transparent bg-clip-text mb-4">
                 {product.price}
               </p>
+
+              {/* Rent Now Button with Hover Effect */}
               <motion.button
-                className="w-full py-2 px-4 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-xs transition-all ease-in-out duration-200"
-                whileHover={{ scale: 1.1 }} // Hover scale effect
-                whileTap={{ scale: 0.95 }}  // Tap effect
+                className="w-full py-2 px-4 rounded-md shadow-lg text-xs transition-all ease-in-out duration-200 
+                     bg-gradient-to-r from-green-400 to-blue-500 text-white hover:from-blue-500 hover:to-green-400"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Rent Now
               </motion.button>
             </motion.div>
+
+
+
+
+
+
           ))}
         </div>
 

@@ -14,6 +14,7 @@ import HomePage from './Pages/HomePage/HomePage';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import SignUp from './Pages/SignUpPage/SignUp';
 import SignIn from './Pages/SignInPage/SignIn';
+import AboutPage from './Pages/AboutPage/AboutPage';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: 'signin',
         element: <SignIn></SignIn>
+      },
+      {
+        path: 'about',
+        element: <AboutPage></AboutPage>
       }
     ]
   },

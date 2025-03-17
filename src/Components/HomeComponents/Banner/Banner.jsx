@@ -14,6 +14,7 @@ import slide3 from "../../../assets/pic-3.jpg";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthContext";
 
 const Banner = () => {
+    
     const { signInUser, signInWithGoogle, user } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -99,61 +100,83 @@ const Banner = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent z-10"></div>
 
                             {!user && index === 0 ? (
-                                <div className="relative z-20 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-md mx-auto">
-                                    <h2 className="text-3xl font-bold text-white mb-4">Please Log In to Continue</h2>
+                                <div className="relative z-20 bg-white/30 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-md mx-auto">
+                                    {/* Gradient Login Title */}
+                                    <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent shadow-lg mb-4">
+                                        Please Log In to Continue
+                                    </h2>
+
                                     <form onSubmit={handleLogin} className="space-y-4">
+                                        {/* Email Input */}
                                         <input
                                             type="email"
                                             placeholder="Email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                                            className="w-full p-3 rounded-lg border border-transparent focus:ring-2 focus:ring-blue-400 bg-white/80 text-gray-800 shadow-md transition-all duration-300"
                                             required
-                                            onFocus={handleFocus} // Stop autoplay on focus
-                                            onBlur={handleBlur} // Restart autoplay on blur
+                                            onFocus={handleFocus}
+                                            onBlur={handleBlur}
                                         />
+
+                                        {/* Password Input */}
                                         <input
                                             type="password"
                                             placeholder="Password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                                            className="w-full p-3 rounded-lg border border-transparent focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 shadow-md transition-all duration-300"
                                             required
-                                            onFocus={handleFocus} // Stop autoplay on focus
-                                            onBlur={handleBlur} // Restart autoplay on blur
+                                            onFocus={handleFocus}
+                                            onBlur={handleBlur}
                                         />
+
+                                        {/* Error Message */}
                                         {error && <p className="text-red-500 text-sm">{error}</p>}
+
+                                        {/* Login Button */}
                                         <button
                                             type="submit"
-                                            className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                                            className="w-full p-3 text-white rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 shadow-md hover:shadow-lg transition-all duration-300"
                                         >
                                             Log In
                                         </button>
                                     </form>
+
+                                    {/* Google Sign-In Button */}
                                     <button
                                         onClick={handleGoogleSign}
-                                        className="w-full mt-3 bg-gray-100 text-black p-3 rounded-lg flex items-center justify-center"
+                                        className="w-full mt-3 bg-white text-gray-900 p-3 rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300"
                                     >
-                                        <FaGoogle className="mr-2" /> Sign in with Google
+                                        <FaGoogle className="mr-2 text-xl text-blue-500" />
+                                        <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent font-semibold">
+                                            Sign in with Google
+                                        </span>
                                     </button>
                                 </div>
                             ) : (
                                 <div className="relative z-20 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-3xl">
-                                    <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">
+                                    {/* Gradient Title */}
+                                    <h1 className="text-3xl md:text-5xl font-extrabold mb-4 pb-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent shadow-lg">
                                         {slide.title}
                                     </h1>
-                                    <p className="text-base md:text-lg mb-6 text-gray-800 dark:text-gray-300">
+
+                                    {/* Gradient Paragraph */}
+                                    <p className="text-base md:text-lg mb-6 bg-gradient-to-r from-green-300 via-blue-400 to-purple-400 bg-clip-text text-transparent shadow-lg pb-2">
                                         {slide.description}
                                     </p>
+
+                                    {/* Action Buttons */}
                                     <div className="flex flex-wrap justify-center gap-4">
-                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-white rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-md hover:shadow-xl">
+                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-white rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-md hover:shadow-xl transition-all duration-300">
                                             {slide.button1}
                                         </button>
-                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-gray-900 dark:text-gray-200 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-xl">
+                                        <button className="px-5 py-2 md:px-6 md:py-3 text-sm md:text-lg font-medium text-gray-900 dark:text-gray-200 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300">
                                             {slide.button2}
                                         </button>
                                     </div>
                                 </div>
+
                             )}
                         </div>
                     </SwiperSlide>
