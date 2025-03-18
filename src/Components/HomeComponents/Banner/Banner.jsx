@@ -12,9 +12,10 @@ import slide1 from "../../../assets/pic-1.jpg";
 import slide2 from "../../../assets/pic-2.jpg";
 import slide3 from "../../../assets/pic-3.jpg";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthContext";
+import { useDarkMode } from "../../../Contexts/DarkModeProvider/DarkModeProvider"; // Assuming you have this provider
 
 const Banner = () => {
-    
+    const { isDarkMode } = useDarkMode();
     const { signInUser, signInWithGoogle, user } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -93,16 +94,26 @@ const Banner = () => {
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
                         <div
-                            className="relative w-full h-[65vh] md:h-[60vh] lg:h-[70vh] flex items-center justify-center bg-cover bg-center"
+                            className={`relative w-full h-[65vh] md:h-[60vh] lg:h-[70vh] flex items-center justify-center bg-cover bg-center ${
+                                isDarkMode ? 'bg-gray-800' : 'bg-white'
+                            }`}
                             style={{ backgroundImage: `url(${slide.image})` }}
                         >
                             {/* Gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent z-10"></div>
+                            <div
+                                className={`absolute inset-0 ${
+                                    isDarkMode ? 'bg-gradient-to-t from-black/60 via-black/40 to-transparent' : 'bg-gradient-to-t from-white/20 via-white/20 to-transparent'
+                                } z-10`}
+                            ></div>
 
                             {!user && index === 0 ? (
                                 <div className="relative z-20 bg-white/30 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-md mx-auto">
                                     {/* Gradient Login Title */}
-                                    <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent shadow-lg mb-4">
+                                    <h2
+                                        className={`text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent shadow-lg mb-4 ${
+                                            isDarkMode ? 'text-white' : 'text-black'
+                                        }`}
+                                    >
                                         Please Log In to Continue
                                     </h2>
 
@@ -113,7 +124,9 @@ const Banner = () => {
                                             placeholder="Email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full p-3 rounded-lg border border-transparent focus:ring-2 focus:ring-blue-400 bg-white/80 text-gray-800 shadow-md transition-all duration-300"
+                                            className={`w-full p-3 rounded-lg border border-transparent focus:ring-2 focus:ring-blue-400 bg-white/80 text-gray-800 shadow-md transition-all duration-300 ${
+                                                isDarkMode ? 'bg-gray-700 text-white' : 'bg-white'
+                                            }`}
                                             required
                                             onFocus={handleFocus}
                                             onBlur={handleBlur}
@@ -125,7 +138,9 @@ const Banner = () => {
                                             placeholder="Password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            className="w-full p-3 rounded-lg border border-transparent focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 shadow-md transition-all duration-300"
+                                            className={`w-full p-3 rounded-lg border border-transparent focus:ring-2 focus:ring-purple-400 bg-white/80 text-gray-800 shadow-md transition-all duration-300 ${
+                                                isDarkMode ? 'bg-gray-700 text-white' : 'bg-white'
+                                            }`}
                                             required
                                             onFocus={handleFocus}
                                             onBlur={handleBlur}
@@ -137,7 +152,9 @@ const Banner = () => {
                                         {/* Login Button */}
                                         <button
                                             type="submit"
-                                            className="w-full p-3 text-white rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 shadow-md hover:shadow-lg transition-all duration-300"
+                                            className={`w-full p-3 text-white rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 shadow-md hover:shadow-lg transition-all duration-300 ${
+                                                isDarkMode ? 'bg-gray-700' : 'bg-gradient-to-r from-blue-500 to-purple-600'
+                                            }`}
                                         >
                                             Log In
                                         </button>
@@ -146,7 +163,9 @@ const Banner = () => {
                                     {/* Google Sign-In Button */}
                                     <button
                                         onClick={handleGoogleSign}
-                                        className="w-full mt-3 bg-white text-gray-900 p-3 rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300"
+                                        className={`w-full mt-3 bg-white text-gray-900 p-3 rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 ${
+                                            isDarkMode ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'
+                                        }`}
                                     >
                                         <FaGoogle className="mr-2 text-xl text-blue-500" />
                                         <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent font-semibold">
@@ -155,14 +174,22 @@ const Banner = () => {
                                     </button>
                                 </div>
                             ) : (
-                                <div className="relative z-20 bg-white/20 backdrop-blur-lg p-6 md:p-10 rounded-xl shadow-lg text-center max-w-3xl">
+                                <div
+                                    className={`relative z-20 p-6 md:p-10 rounded-xl shadow-lg text-center max-w-3xl ${
+                                        isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
+                                    }`}
+                                >
                                     {/* Gradient Title */}
-                                    <h1 className="text-3xl md:text-5xl font-extrabold mb-4 pb-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent shadow-lg">
+                                    <h1
+                                        className={`text-3xl md:text-5xl font-extrabold mb-4 pb-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent shadow-lg`}
+                                    >
                                         {slide.title}
                                     </h1>
 
                                     {/* Gradient Paragraph */}
-                                    <p className="text-base md:text-lg mb-6 bg-gradient-to-r from-green-300 via-blue-400 to-purple-400 bg-clip-text text-transparent shadow-lg pb-2">
+                                    <p
+                                        className={`text-base md:text-lg mb-6 bg-gradient-to-r from-green-300 via-blue-400 to-purple-400 bg-clip-text text-transparent shadow-lg pb-2`}
+                                    >
                                         {slide.description}
                                     </p>
 
@@ -176,7 +203,6 @@ const Banner = () => {
                                         </button>
                                     </div>
                                 </div>
-
                             )}
                         </div>
                     </SwiperSlide>

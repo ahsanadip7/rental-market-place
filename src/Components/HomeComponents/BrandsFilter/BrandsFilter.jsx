@@ -70,7 +70,7 @@ const BrandsFilter = () => {
                                 className="w-full h-40 object-cover rounded-lg mb-4 transition-transform duration-300 ease-in-out"
                             />
                             <h3 className="text-xl font-semibold">{product.name}</h3>
-                            <p className="text-gray-600">{product.description}</p>
+                            <p className="">{product.description}</p>
                             <p className="mt-2 font-bold">{product.price}</p>
                             <button className="mt-4 px-6 py-3 text-lg font-semibold text-white rounded-full border-2 border-transparent bg-gradient-to-r from-green-400 to-blue-500 bg-clip-padding hover:bg-gradient-to-l hover:from-blue-500 hover:to-green-400 hover:border-transparent hover:scale-105 hover:shadow-xl focus:outline-none transition-all duration-300 ease-in-out">
                                 Rent Now
